@@ -1,0 +1,442 @@
+/*top page样式*/
+a.login:link 		{	TEXT-DECORATION: underline;	color: #000000;	position: relative;	font-weight: normal;font-size: 12px;line-height: 18px;}
+a.login:visited 		{	TEXT-DECORATION: underline;	color: #000000;	position: relative;	font-weight: normal;font-size: 12px;line-height: 18px;}
+a.login:hover		{	TEXT-DECORATION: underline;	color: #FF6600;	position: relative;	font-weight: normal;font-size: 12px;line-height: 18px;}
+a.login:active		{	TEXT-DECORATION: underline;	color: #000000;	position: relative;	font-weight: normal;font-size: 12px;line-height: 18px;}
+
+a.main_menu:link 	{
+TEXT-DECORATION: none;	color: #ffffff;	font-weight: normal;font-size: 12px;
+}
+a.main_menu:visited {
+TEXT-DECORATION: none;	color: #ffffff;	font-weight: normal;font-size: 12px;
+}
+a.main_menu:hover	{
+TEXT-DECORATION: underline; color: #ffffff; font-weight: normal;font-size: 12px;
+}
+a.main_menu:active	{
+TEXT-DECORATION: none;	color: #ffffff;	font-weight: normal;font-size: 12px;
+}
+
+.main_menu_text {
+color: #000000; font-weight: normal; font-size: 12px; padding-left:15px; padding-top:3px;
+}
+
+.Head 	{
+	TEXT-DECORATION: none;
+	color: #000000;
+	text-align: right;
+	text-indent: 8px;
+}
+/* END */
+
+/*首 页*/
+.index_btn {
+	BORDER-RIGHT: 0px; BORDER-TOP: 0px; FONT-SIZE: 13px; BACKGROUND-IMAGE: url("btn_index[1].gif"); BORDER-LEFT: 0px; CURSOR: hand; WIDTH: 135px; HEIGHT: 28px; COLOR: #000000; PADDING-TOP: 2px; BORDER-bottom: 0px;
+}
+
+a.index_logoin:link 		{	TEXT-DECORATION: underline;	color: #0058A2;	position: relative;	font-weight: bold;font-size: 13px;line-height: 18px;}
+a.index_logoin:visited 		{	TEXT-DECORATION: underline;	color: #0058A2;	position: relative;	font-weight: bold;font-size: 13px;line-height: 18px;}
+a.index_logoin:hover		{	TEXT-DECORATION: underline;	color: #FF6600;	position: relative;	font-weight: bold;font-size: 13px;line-height: 18px;}
+a.index_logoin:active		{	TEXT-DECORATION: underline;	color: #0058A2;	position: relative;	font-weight: bold;font-size: 13px;line-height: 18px; }
+
+a.index_text:link 		{TEXT-DECORATION: underline;color: #339900;	position: relative;	font-size: 12px;line-height: 18px;}
+a.index_text:visited 	{TEXT-DECORATION: underline;color: #339900;	position: relative;	font-size: 12px;line-height: 18px;}
+a.index_text:hover		{TEXT-DECORATION: underline;color: #FF6666;	position: relative;	font-size: 12px;line-height: 18px;}
+a.index_text:active		{TEXT-DECORATION: underline;color: #339900;	position: relative;	font-size: 12px;line-height: 18px;}
+
+/*end*/
+body,td,th {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	font-family: "宋体",Verdana, Arial;
+	font-size: 12px;
+	text-align: left;
+}
+/* 输入选择*/
+input{font-family: "宋体",Verdana, Arial ;font-size: 12px;}
+select {border:1px solid   #F4F4F4;height:17px;clip:rect(0px,179px,16px,0px);overflow:hidden;}
+
+/* 全部链接*/
+a:link 		{	TEXT-DECORATION: none;	color: #264F85;}
+a:visited 	{	TEXT-DECORATION: none;	color: #264F85;}
+a:hover 	{	TEXT-DECORATION: none;	color: #264F85;}
+a:active 	{	TEXT-DECORATION: none;	color: #666666;}
+
+/* 链接*/
+a.blue:link 		{
+	TEXT-DECORATION: underline;
+	color: #000000;
+	position: relative;
+	font-weight: normal;
+	font-size: 12px;
+	line-height: 18px;
+}
+a.blue:link 		{	TEXT-DECORATION: underline;	color: #00459A;	position: relative;	font-weight: normal;font-size: 12px;line-height: 18px;}
+a.blue:visited 		{	TEXT-DECORATION: underline;	color: #00459A;	position: relative;	font-weight: normal;font-size: 12px;line-height: 18px;}
+a.blue:hover		{	TEXT-DECORATION: underline;	color: #FF6600;	position: relative;	font-weight: normal;font-size: 12px;line-height: 18px;}
+a.blue:active		{	TEXT-DECORATION: underline;	color: #00459A;	position: relative;	font-weight: normal;font-size: 12px;line-height: 18px;}
+
+a.blue01::link 		{	TEXT-DECORATION: underline;	color: #0000FF;	position: relative;	font-weight: normal;font-size: 12px;}
+a.blue01:visited 	{	TEXT-DECORATION: underline;	color: #0000FF;	position: relative;	font-weight: normal;font-size: 12px;}
+a.blue01:hover		{	TEXT-DECORATION: underline;	color: #FF6600;	position: relative;	font-weight: normal;font-size: 12px;}
+a.blue01:active		{	TEXT-DECORATION: underline;	color: #0000FF;	position: relative;	font-weight: normal;font-size: 12px;}
+
+a.orange:link 		{	TEXT-DECORATION: underline;	color: #FF9400;	position: relative;	font-weight: bold;font-size: 12px;}
+a.orange:visited 	{	TEXT-DECORATION: underline;	color: #FF9400;	position: relative;	font-weight: bold;font-size: 12px;}
+a.orange:hover		{	TEXT-DECORATION: underline;	color: #FF6600;	position: relative;	font-weight: bold;font-size: 12px;}
+a.orange:active		{	TEXT-DECORATION: underline;	color: #FF9400;	position: relative;	font-weight: bold;font-size: 12px;}
+
+a.orange01:link 		{	TEXT-DECORATION: underline;	color: #FF9400;	position: relative;font-size: 12px;}
+a.orange01:visited 	{	TEXT-DECORATION: underline;	color: #FF9400;	position: relative;font-size: 12px;}
+a.orange01:hover		{	TEXT-DECORATION: underline;	color: #FF6600;	position: relative;font-size: 12px;}
+a.orange01:active		{	TEXT-DECORATION: underline;	color: #FF9400;	position: relative;font-size: 12px;}
+
+a.blackunderline:link 		{	FONT: bold 14px "宋体", Verdana, Arial;COLOR: #000000;TEXT-ALIGN: left;TEXT-DECORATION: underline;}
+a.blackunderline:visited 	{	FONT: bold 14px "宋体", Verdana, Arial;COLOR: #000000;TEXT-ALIGN: left;TEXT-DECORATION: underline;}
+a.blackunderline:hover		{	FONT: bold 14px "宋体", Verdana, Arial;COLOR: #FF6600;TEXT-ALIGN: left;TEXT-DECORATION: underline;}
+a.blackunderline:active		{	FONT: bold 14px "宋体", Verdana, Arial;COLOR: #000000;TEXT-ALIGN: left;TEXT-DECORATION: underline;}
+
+a.blackunderline12:link 		{	FONT: normal 12px "宋体", Verdana, Arial;COLOR: #000000;TEXT-ALIGN: left;TEXT-DECORATION: underline;}
+a.blackunderline12:visited 		{	FONT: normal 12px "宋体", Verdana, Arial;COLOR: #000000;TEXT-ALIGN: left;TEXT-DECORATION: underline;}
+a.blackunderline12:hover		{	FONT: normal 12px "宋体", Verdana, Arial;COLOR: #FF6600;TEXT-ALIGN: left;TEXT-DECORATION: underline;}
+a.blackunderline12:active		{	FONT: normal 12px "宋体", Verdana, Arial;COLOR: #000000;TEXT-ALIGN: left;TEXT-DECORATION: underline;}
+
+a.greyunderline:link 		{	FONT: normal 12px "宋体", Verdana, Arial;COLOR: #828282;TEXT-ALIGN: left;TEXT-DECORATION: underline;}
+a.greyunderline:visited 	{	FONT: normal 12px "宋体", Verdana, Arial;COLOR: #828282;TEXT-ALIGN: left;TEXT-DECORATION: underline;}
+a.greyunderline:hover		{	FONT: normal 12px "宋体", Verdana, Arial;COLOR: #FF6600;TEXT-ALIGN: left;TEXT-DECORATION: underline;}
+a.greyunderline:active		{	FONT: normal 12px "宋体", Verdana, Arial;COLOR: #828282;TEXT-ALIGN: left;TEXT-DECORATION: underline;}
+
+a.greentext:link 		{	FONT: normal 12px "宋体", Verdana, Arial;COLOR: #00970E;TEXT-DECORATION: underline;}
+a.greentext:visited 	{	FONT: normal 12px "宋体", Verdana, Arial;COLOR: #00970E;TEXT-DECORATION: underline;}
+a.greentext:hover		{	FONT: normal 12px "宋体", Verdana, Arial;COLOR: #FF6600;TEXT-DECORATION: underline;}
+a.greentext:active		{	FONT: normal 12px "宋体", Verdana, Arial;COLOR: #00970E;TEXT-DECORATION: underline;}
+
+/* FOOT链接*/
+a.Foot:link 		{	TEXT-DECORATION: underline;	color: #333333;}
+a.Foot:visited 		{	TEXT-DECORATION: underline;  color: #1889D7;}
+a.Foot:hover		{	TEXT-DECORATION: underline;	color: #FF6600;	}
+a.Foot:active		{	TEXT-DECORATION: underline;  color: #1889D7;}
+
+/* 图片*/
+.images_inside {
+	VERTICAL-ALIGN: bottom; TEXT-DECORATION: none
+}
+/* 分类标题*/
+.Title{	FONT: bold 16px "宋体", Arial, Tahoma; COLOR: #000000;  TEXT-ALIGN: left; TEXT-DECORATION: none;}
+.Title_sub{	FONT: normal 14px/20px "宋体", Arial, Tahoma; COLOR: #000000;  TEXT-ALIGN: left; TEXT-DECORATION: none;}
+.Title_sub_red{	FONT: normal 14px/20px "宋体", Arial, Tahoma; COLOR: red;  TEXT-ALIGN: left; TEXT-DECORATION: none;}
+
+/* 细线表格*/
+.box {	BORDER-top: rgb(147,195,243) 1px solid; BORDER-bottom: rgb(147,195,243) 1px solid; BORDER-left: rgb(147,195,243) 1px solid; BORDER-right: rgb(147,195,243) 1px solid}
+.boxlight {
+	BORDER-top: rgb(147,195,243) 1px solid;
+	BORDER-bottom: rgb(147,195,243) 1px solid;
+	BORDER-left: rgb(147,195,243) 1px solid;
+	BORDER-right: rgb(147,195,243) 1px solid;
+	background-color: #F7FBFF;
+}
+.boxblue {
+	background-color: #E4F5FF;
+	border: 1px solid rgb(44,122,195);
+	color: #000000;
+}
+.boxunderlineblue {	
+	BORDER-bottom: rgb(213,228,247) 1px solid;
+}
+.boxinput {
+	BORDER-top: rgb(147,195,243) 1px solid;
+	BORDER-bottom: rgb(147,195,243) 1px solid;
+	BORDER-left: rgb(147,195,243) 1px solid;
+	BORDER-right: rgb(147,195,243) 1px solid;
+	background-color: #FFFFFF;
+}
+.boxinputgrey {
+	BORDER-top: rgb(147,195,243) 1px solid;
+	BORDER-bottom: rgb(147,195,243) 1px solid;
+	BORDER-left: rgb(147,195,243) 1px solid;
+	BORDER-right: rgb(147,195,243) 1px solid;
+	FONT: normal 12px "宋体", Verdana, Arial;
+	line-height:16px;
+}
+.boxtitle {
+	BORDER-top: rgb(213,228,247) 1px solid;
+	BORDER-bottom: rgb(213,228,247) 1px solid;
+	BORDER-left: rgb(213,228,247) 1px solid;
+	BORDER-right: rgb(213,228,247) 1px solid;
+}
+.greydotline { 	border-bottom:  #606060  1px  dotted;}
+
+.appeal_table_1 {
+	FONT-SIZE: 12px; BORDER-RIGHT: #9999a1 1px solid; BORDER-TOP: #9999a1 1px solid; BORDER-LEFT: #9999a1 1px solid; BORDER-BOTTOM: #9999a1 1px solid;
+}
+.appeal_table_2 {
+	FONT-SIZE: 12px; COLOR: #000000; LINE-HEIGHT: 23px; BACKGROUND-COLOR: #F2F2F2; TEXT-DECORATION: none
+}
+.app_gimage {
+	BORDER-RIGHT: #E0E9F1 1px solid; BORDER-TOP: #E0E9F1 1px solid; BORDER-LEFT: #E0E9F1 1px solid; BORDER-BOTTOM: #E0E9F1 1px solid
+}
+.app_help_div{
+RIGHT: 100px; FLOAT: right; POSITION: relative; TOP: 0px;
+}
+/*下拉菜单 */
+.menu_down_box{
+border-bottom:1px solid #53AEED; 
+border-left:1px solid #53AEED; 
+border-right:1px solid #53AEED; 
+width:90px;
+}
+
+.menu_down_1 {
+	MARGIN: 0px 0px 0px 0px;
+	line-height: 25px;
+	text-align: left;
+	list-style-position: inside;
+	background-color: #DFF1FF;
+}
+.menu_down_2 {
+	MARGIN: 0px 0px 0px 0px;
+	line-height: 25px;
+	text-align: left;
+	list-style-position: inside;
+	background-color: #ffffff;
+}
+
+a.menu_down:link 	{TEXT-DECORATION: none;	color: #000000;	font-weight: normal;font-size: 12px;text-align:center;
+}
+a.menu_down:visited {TEXT-DECORATION: none;	color: #000000;	font-weight: normal;font-size: 12px;text-align:center;
+}
+a.menu_down:hover	{TEXT-DECORATION: underline; color: #000000; font-weight: normal;font-size: 12px;text-align:center;
+}
+a.menu_down:active	{TEXT-DECORATION: none;	color: #000000;	font-weight: normal;font-size: 12px;text-align:center;
+}
+
+/* 左边菜单表格*/
+a.menu_left:link 	{TEXT-DECORATION: none;	color: #000000;	font-weight: normal;font-size: 14px;text-align:center;
+}
+a.menu_left:visited {TEXT-DECORATION: none;	color: #000000;	font-weight: normal;font-size: 14px;text-align:center;
+}
+a.menu_left:hover	{TEXT-DECORATION: underline; color: #000000; font-weight: normal;font-size: 14px;text-align:center;
+}
+a.menu_left:active	{TEXT-DECORATION: none;	color: #000000;	font-weight: normal;font-size: 14px;text-align:center;
+}
+
+.menu_1_mouseon {
+	BORDER-bottom: 1px solid #CCCCCC;
+	list-style-image: url("icon_mouseon[1].gif");MARGIN: 0px 0px 0px 0px;
+	line-height: 25px;
+	font-weight: bold;
+	color: #000000;
+	text-align: left;
+	text-indent: 20px;
+	background-color: #F7FAFF;
+	font-size: 14px;
+}
+.menu_left_title {
+	line-height: 25px;
+	color: #ffffff;
+	text-align: left;
+	list-style-position: inside;
+	text-indent: 5px;
+	background-color: #53AEED;
+	font-size: 14px;
+	FONT: bold  14px "宋体", Arial, Tahoma; 
+	TEXT-ALIGN: left; 
+	TEXT-DECORATION: none;
+
+}
+.menu_1_mouseoff {
+	line-height: 25px;
+	color: #666666;
+	text-align: left;
+	list-style-position: inside;
+	text-indent: 20px;
+	background-color: #DFF1FF;
+	font-size: 14px;
+}
+.menu_2_mouseoff {
+	line-height: 25px;
+	color: #666666;
+	text-align: left;
+	list-style-position: inside;
+	text-indent: 20px;
+	BACKGROUND-IMAGE: url("menu_left_bg[1].gif");
+	font-size: 14px;
+}
+.app_table_contact1{
+border-right:1px solid #F3F4F6; border-left:1px solid #F3F4F6; border-top:1px solid #F3F4F6
+}
+.app_table_contact2{
+border-right:1px solid #F3F4F6; border-left:1px solid #F3F4F6; border-bottom:1px solid #F3F4F6
+}
+
+/* 背景色*/
+.boxlightblue {		background-color: #F7FBFF;}
+.boxlightgrey {
+	background-color: #D9DDE8;
+	width: 180px;
+}
+.boxgreen {		background-color: #50B033;}
+.menubluetowhite {
+FILTER: progid:DXImageTransform.Microsoft.Gradient(gradientType=0,startColorStr=#DFF1FF,endColorStr=#ffffff);
+}
+
+/* 内容文字*/
+.Text_inside {	FONT: normal 12px/18px "宋体", Verdana, Arial; COLOR: #2C2C2C;  TEXT-ALIGN: left; TEXT-DECORATION: none}
+.Red {	color: #FF0000;	font-weight: normal;}
+.Green {	color: #339900;	font-weight: normal;}
+.Form {
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: dotted;
+	border-left-style: none;
+	border-top-color: #CCCCCC;
+	border-right-color: #CCCCCC;
+	border-bottom-color: #CCCCCC;
+	border-left-color: #CCCCCC;
+	border-top-width: 1px;
+	border-right-width: 1px;
+	border-bottom-width: 1px;
+	border-left-width: 1px;
+	padding: 5px;}
+.Title_login {	FONT: bolder 12px "宋体", Arial, Tahoma;
+	COLOR: #000000;
+	TEXT-ALIGN: left;	TEXT-DECORATION: none;background-color: #B8DCFF;}
+.Text_login {
+	FONT: 12px "宋体", Verdana, Arial;
+	COLOR: #333333;
+	TEXT-ALIGN: left;
+	TEXT-DECORATION: none;
+	background-color: #F0F8FF;}
+.Title_sub_on {		FONT: bold  14px "宋体", Arial, Tahoma; COLOR: #000000;  TEXT-ALIGN: left; TEXT-DECORATION: none;}
+.Title_sub_off {	FONT: normal 14px "宋体", Arial, Tahoma; COLOR: #797979;  TEXT-ALIGN: left; TEXT-DECORATION: none;}
+.sub_off {	FONT: normal 12px "宋体", Arial, Tahoma; COLOR: #797979;  TEXT-ALIGN: left; TEXT-DECORATION: none;}
+.Title16 {	FONT: bold 16px "宋体", Arial, Tahoma; COLOR: #000000; TEXT-DECORATION: none;}
+.Text_induct {
+FONT: 12px "宋体", Verdana, Arial;COLOR: #000000;TEXT-DECORATION: none;
+}
+.Text_induct_red {
+FONT: 12px/15px "宋体", Verdana, Arial;COLOR: #FF0000;TEXT-DECORATION: none;
+}	
+.Title_14 {
+FONT: bold  14px "宋体", Arial, Tahoma; COLOR: #000000;  TEXT-ALIGN: left; TEXT-DECORATION: none;
+}
+.title_20{
+FONT: bold  13px "宋体", Arial, Tahoma; COLOR: #0066cc; 
+}
+
+.greydotlineon {
+	border-top-width: 1px;
+	border-top-style: dotted;
+	border-top-color: #606060;
+}
+.boxyellow {
+	background-color: #FFFFD2;
+	font-size: 14px;
+	line-height: 18px;
+	border-top: 1px solid #FFCC66;
+	border-right: 1px solid #FFCC66;
+	border-bottom: 1px solid #FFCC66;
+	border-left: 1px solid #FFCC66;
+}
+.Title_12 {
+FONT: bold 12px "宋体", Arial, Tahoma; COLOR: #000000;  TEXT-ALIGN: left; TEXT-DECORATION: none;
+}
+.helptitle {
+	font-family: "宋体", Arial, Tahoma;
+	font-size: 14px;
+	font-weight: normal;
+	color: #003399;
+	text-decoration: none;
+	background-color: #DEF4FA;
+	text-align: center;
+}
+
+.css0161
+{
+	background-color:#FFF;
+}
+.css0162
+{background-color:#EBEBEB;border-right:solid 1px #BEBEBE;border-bottom:solid 1px #BEBEBE;}
+.css0163
+{background-color:#FF4545;border-right:solid 1px #BB2B2B;border-bottom:solid 1px #BB2B2B;}
+.css0164
+{background-color:#FFD35E;border-right:solid 1px #E9AE10;border-bottom:solid 1px #E9AE10;}
+.css0165
+{background-color:#3ABB1C;border-right:solid 1px #267A12;border-bottom:solid 1px #267A12;}
+
+td#leftTD,td#topleftTD,td#btmleftTD
+{border-right:1px solid #DDD;text-align:right;padding:0 36px 0 36px;}
+td#rightTD, td#moreTD, td#toprightTD
+{padding:0 36px 0 36px;width:380px;}
+
+.clew_text{
+line-height:16px; font-size:12px;
+}
+.clew_text_1{
+FONT: 12px "宋体", Verdana, Arial;COLOR: #000000; line-height:17px;
+}
+
+a.clew_text_2:link 		{	TEXT-DECORATION: underline;	color: #00459A;	font-weight: normal;font-size: 12px;line-height: 18px;}
+a.clew_text_2:visited 	{	TEXT-DECORATION: underline;	color: #00459A;	font-weight: normal;font-size: 12px;line-height: 18px;}
+a.clew_text_2:hover		{	TEXT-DECORATION: underline;	color: #FF6600; font-weight: normal;font-size: 12px;line-height: 18px;}
+a.clew_text_2:active	{	TEXT-DECORATION: underline;	color: #00459A;	font-weight: normal;font-size: 12px;line-height: 18px;}
+
+a.login_text:link 		{TEXT-DECORATION: underline;color: #CC3399;	position: relative;	font-weight: normal;font-size: 12px;line-height: 18px;}
+a.login_text:visited 	{TEXT-DECORATION: underline;color: #CC3399;	position: relative;	font-weight: normal;font-size: 12px;line-height: 18px;}
+a.login_text:hover		{TEXT-DECORATION: underline;color: #CC3399;	position: relative;	font-weight: normal;font-size: 12px;line-height: 18px;}
+a.login_text:active		{TEXT-DECORATION: underline;color: #CC3399;	position: relative;	font-weight: normal;font-size: 12px;line-height: 18px;}
+
+.appeal_modi_table{
+text-align: right; width:100px; height:24px
+}
+.clew_text_2{
+FONT: 12px "宋体", Verdana, Arial;COLOR: #6699CC;
+}
+.drop_text{
+COLOR: #ff6600;
+}
+.app_navigation_text1 {
+font-family: Arial, Helvetica, sans-serif;font-size: 14px;color: #ff6000;
+}
+.app_navigation_text2 {
+font-family: Arial, Helvetica, sans-serif; color: #0099ff; font-size: 16px; 
+}
+.app_navigation_text3 {
+font-family: Arial, Helvetica, sans-serif; color: #ff6000; font-size: 16px; 
+}
+.app_navigation_text4 {
+font-family: Arial, Helvetica, sans-serif;font-size: 14px;color: #000000;
+}
+.app_navigation_nem1 {
+font-family: "宋体",Verdana, Arial;font-size: 14px;color: #74706C;
+}
+.app_navigation_nem2 {
+font-family: "宋体",Verdana, Arial; font-size: 14px;color: #FF8A00 ;font-weight: bold;
+}
+
+/* button样式 */
+.ImgBtn_Small {
+	BORDER-RIGHT: 0px; BORDER-TOP: 0px; FONT-SIZE: 12px; BACKGROUND-IMAGE: url("btn_img_s[1].gif"); BORDER-LEFT: 0px; WIDTH: 62px; CURSOR: hand; COLOR: #000000; PADDING-TOP: 0px; BORDER-BOTTOM: 0px; HEIGHT: 22px;text-align: center
+}
+.ImgBtn_Big {
+	BORDER-RIGHT: 0px; BORDER-TOP: 0px; FONT-SIZE: 12px; BACKGROUND-IMAGE: url("btn_img[1].gif"); BORDER-LEFT: 0px; WIDTH: 67px; HEIGHT: 22px;CURSOR: hand; COLOR: #000000; PADDING-TOP: 0px; BORDER-BOTTOM: 0px; text-align: center
+}
+.app_ImgBtn_Big {
+	BORDER-RIGHT: 0px; BORDER-TOP: 0px; FONT-SIZE: 14px; BACKGROUND-IMAGE: url("app_btn1[1].gif"); BORDER-LEFT: 0px; CURSOR: hand; WIDTH: 126px; HEIGHT: 31px; COLOR: #ffffff; PADDING-TOP: 0px; BORDER-BOTTOM: 0px; text-align: center;font-weight: bold; 
+}
+.app_btn_clear{
+BORDER-RIGHT: 0px; BORDER-TOP: 0px; FONT-SIZE: 12px; background-color:#66CCFF; BORDER-LEFT: 0px; WIDTH: 30px; COLOR: #000000; PADDING-TOP: 5px; PADDING-left: 5px; BORDER-BOTTOM: 0px; HEIGHT: 25px;text-align: center
+}
+
+/* 提示对话框 */
+.dialogbox {
+	position:absolute;
+	left:440px;
+	top:633px;
+	width:217px;
+	height:34px;
+	z-index:1000;
+	visibility: hidden;
+}

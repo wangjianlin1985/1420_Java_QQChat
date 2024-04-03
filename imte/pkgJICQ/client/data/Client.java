@@ -1,0 +1,425 @@
+package pkgJICQ.client.data;
+
+import pkgJICQ.client.frame.*;
+
+import java.net.*;
+import java.io.*;
+import java.util.*;
+import javax.swing.*;
+
+public class Client implements Runnable {
+	public static Socket socket;
+
+	DataInputStream in;
+
+	DataOutputStream out;
+
+	Thread thread = null;
+
+	MyPersonTree mt; 
+
+	public static PlayMusic playMusic = new PlayMusic();
+
+	public static LeastPerson lPerson = new LeastPerson(MyPersonTree.myJICQ);//最近联系人
+
+	public Client(MyPersonTree mt) {
+		this.mt = mt;
+		try {
+			System.out.println("into Client构造函数");
+			//自己的ip地址
+			socket = new Socket("127.0.0.1", 7891);
+			in = new DataInputStream(socket.getInputStream());
+			out = new DataOutputStream(socket.getOutputStream());
+		} catch (Exception ex) {
+			JOptionPane.showMessageDialog(null, "登陆失败，可能是由于服务器端没有开启或者网络原因!",
+					"JICQ提示", 1);
+			ex.printStackTrace();
+			System.exit(1);
+		}
+
+		if (thread == null) {
+			System.out.println("client Thread == null new Thread");
+			thread = new Thread(this);
+			//用户第一次登录的时候向好友发送上线消息
+			send("PEOPLE#" + MyPersonTree.myJICQ);
+			thread.setPriority(Thread.MIN_PRIORITY);
+			thread.start();
+		}
+		// if((thread!=null)&&thread.isAlive()) //判断线程是否在运行
+		// { thread.interrupt(); thread=null; }
+
+	}
+
+	public void run() {
+		try {
+			String key = "";
+			String line = "";
+			while (true) {
+				System.out.println("into Client run() method");
+				line = in.readUTF();
+				System.out.println(line);
+				StringTokenizer stk = new StringTokenizer(line, "#"); // PEOPLE+"#"+JICQ
+				if (stk.hasMoreElements())
+					key = (String) stk.nextElement();
+				if (key.equals("PEOPLE")) {
+					try {
+						//提示信息 好友上线等之类的
+						String hisJICQ = (String) stk.nextElement();
+						Person p = findPerson(hisJICQ);
+						if (p != null) {
+							MyShowPanel my = new MyShowPanel(); // (String
+																// PicID,String
+																// name,String
+																// JICQ,String
+																// IP,String
+																// UnderWrite)
+							my.setMessage(p.getpicID(), p.getname(), p.getID(),
+									p.getIP(), p.getUnderWrite());
+							my.setBounds(775, 565, 243, 167);
+
+							my.setVisible(true);
+							playMusic.goline();
+							try {
+								new ListPersonTree(mt).start(); // 利用这段时间资源进行刷新
+								Thread.currentThread().sleep(2000);
+								my.dispose();
+							} catch (Exception ex) {
+							}
+
+						}
+
+					} catch (ArrayIndexOutOfBoundsException e) {
+					} catch (NullPointerException e) {
+					} finally {
+					}
+				}
+
+				if (key.equals("RELOG")) {
+					try {
+						JOptionPane.showMessageDialog(null,
+								"你的JICQ号码在别处登陆，你被迫下线!", "JICQ提示", 1);
+						this.in.close();
+						this.out.close();
+						this.socket.close();
+						System.exit(1);
+					} catch (ArrayIndexOutOfBoundsException e) {
+					} catch (NullPointerException e) {
+					} catch (Exception e) {
+						e.printStackTrace();
+					} finally {
+					}
+				}
+
+				// MSGONE+HISJICQ+MYJICQ+headmsg+msg
+				if (key.equals("MSGONE")) {
+					try {
+						String JICQ = (String) stk.nextElement();
+						String hisJICQ = (String) stk.nextElement();
+						String headmsg = (String) stk.nextElement();
+						String msg = (String) stk.nextElement();
+
+						Person p = null;
+						for (int i = 0; i < MyPersonTree.alist.size(); i++) // 判断哪个好友发来信息
+						{
+							p = (Person) MyPersonTree.alist.get(i);
+							if (p.getID().equals(hisJICQ))
+								break;
+							else
+								p = null;
+						}
+						if (p != null) // 好友类型
+						{
+							JICQChatFrame jchatExist = null;
+							int isExistFrame = 0;
+							for (int i = 0; i < MyPersonTree.vector.size(); i++) // 判断窗口是否被打开
+							{
+								jchatExist = (JICQChatFrame) MyPersonTree.vector
+										.get(i);
+								if (jchatExist.JICQ.equals(hisJICQ)) {
+									isExistFrame = 1;
+									break;
+								}
+							}
+							if (isExistFrame == 0) {
+								JICQChatFrame jchat = new JICQChatFrame(p, this);
+								MyPersonTree.vector.addElement(jchat);
+								jchat.setMessage(headmsg, msg);
+
+							} else {
+								jchatExist.setMessage(headmsg, msg);
+							}
+
+						} else // 不是属于自己好友类型，没有显示完整得信息
+						{
+							JICQChatFrame jchatExist = null;
+							int isExistFrame = 0;
+							for (int i = 0; i < MyPersonTree.UnKonwVector
+									.size(); i++) // 判断窗口是否被打开
+							{
+								jchatExist = (JICQChatFrame) MyPersonTree.UnKonwVector
+										.get(i);
+								if (jchatExist.JICQ.equals(hisJICQ)) {
+									isExistFrame = 1;
+									break;
+								}
+							}
+							if (isExistFrame == 0) {// (String ID,String
+													// name,String picID,String
+													// underWrite,int
+													// friendType,String
+													// IP,String showID,int
+													// status)
+								try {
+									p = new Person(
+											hisJICQ,
+											"陌生人"
+													+ (MyPersonTree.UnKonwVector
+															.size() + 1),
+											"9999", "", 4, "未知IP", "9999", 3);
+									int k = new Friends().insertFriends(Integer
+											.parseInt(JICQ), Integer
+											.parseInt(hisJICQ), 3);
+									new ListPersonTree(mt).start(); // 刷新好友列表
+									JICQChatFrame jchat = new JICQChatFrame(p,
+											this);
+									MyPersonTree.UnKonwVector.addElement(jchat);
+									jchat.setMessage(headmsg, msg);
+								} catch (Exception ex) {
+								}
+
+							} else {
+								jchatExist.setMessage(headmsg, msg);
+							}
+						}
+
+						lPerson.writeToArrayList(hisJICQ);////?
+
+					} catch (ArrayIndexOutOfBoundsException e) {
+					} catch (NullPointerException e) {
+					} catch (Exception ex) {
+					}
+
+				}
+
+				if (key.equals("MSGGROUP")) // MSGGROUP+GroupID+MYJICQ+headmsg+msg
+				{
+
+					try {
+						String GroupID = (String) stk.nextElement();
+						String hisJICQ = (String) stk.nextElement();
+						String headmsg = (String) stk.nextElement();
+						String msg = (String) stk.nextElement();
+
+						GroupChatFrame jchatExist = null;
+						int isExistFrame = 0;
+
+						for (int i = 0; i < MyListFrame.GroupVector.size(); i++) {
+							jchatExist = (GroupChatFrame) MyListFrame.GroupVector
+									.get(i);
+							int ID = jchatExist.GroupID;
+							if (String.valueOf(ID).equals(GroupID)) {
+								isExistFrame = 1;
+								break;
+							}
+						}
+						if (isExistFrame == 0) {
+							java.sql.ResultSet rs = new GroupDetail()
+									.selectSingleGroup(GroupID);
+							MyGroup myGroup = null;
+							while (rs.next()) {
+								int JGroupID = rs.getInt("JGroupID");
+								String JGroupName = rs.getString("JGroupName");
+								String JGroupType = rs.getString("JGroupType");
+								String JGroupBcast = rs
+										.getString("JGroupBcast");
+								String JGroupInfo = rs.getString("JGroupInfo");
+								myGroup = new MyGroup(JGroupID, JGroupName,
+										JGroupType, JGroupBcast, JGroupInfo);
+							}
+
+							GroupChatFrame jchat = new GroupChatFrame(myGroup,
+									this);
+							MyListFrame.GroupVector.addElement(jchat);
+						} else {
+							jchatExist.setMessage(headmsg, msg);
+						}
+
+					} catch (ArrayIndexOutOfBoundsException e) {
+					} catch (NullPointerException e) {
+					} catch (Exception ex) {
+					}
+
+				}
+
+				// 有好友离线，刷新信息
+				if (key.equals("QUIT")) {
+					new ListPersonTree(mt).start();
+				}
+
+				// 添加好友组
+				if (key.equals("ADDGROUP")) {
+					try {
+						String msg = (String) stk.nextElement();
+						int flag = Integer.parseInt(msg);
+						if (flag > 0) {
+
+							playMusic.gosystem();
+							try {
+
+								JOptionPane.showMessageDialog(null, "创建好友组成功!",
+										"JICQ提示", 1);
+								new ListPersonTree(mt).start(); // 利用这段时间资源进行刷新
+							} catch (Exception ex) {
+							}
+
+						} else {
+							playMusic.gosystem();
+							JOptionPane.showMessageDialog(null,
+									"创建分组失败,请确认你操作是否正确并稍后再试!", "JICQ提示", 1);
+						}
+
+					} catch (ArrayIndexOutOfBoundsException e) {
+					} catch (NullPointerException e) {
+					} finally {
+					}
+				}
+
+				if (key.equals("ADDFRIEND")) {
+
+					try {
+						String myJICQ = (String) stk.nextElement();
+						String hisJICQ = (String) stk.nextElement();
+						String headmsg = (String) stk.nextElement();
+						String reqmsg = (String) stk.nextElement();
+						playMusic.gosystem();
+						int k = JOptionPane.showConfirmDialog(null, hisJICQ
+								+ "向你发出好友申请：" + reqmsg + ",是否接受他的申请?", "好友申请",
+								1, 1);
+
+						if (k == JOptionPane.YES_OPTION) {
+							this.send("COMFIRMADD#" + myJICQ + "#" + hisJICQ
+									+ "#" + headmsg + "#1");
+						} else if (k == JOptionPane.NO_OPTION) {
+							this.send("COMFIRMADD#" + myJICQ + "#" + hisJICQ
+									+ "#" + headmsg + "#0");
+						}
+
+					} catch (ArrayIndexOutOfBoundsException e) {
+						e.printStackTrace();
+					} catch (NullPointerException e) {
+						e.printStackTrace();
+					} finally {
+					}
+				}
+
+				if (key.equals("COMFIRMADD")) {
+					String JICQReceiver = (String) stk.nextElement();
+					String JICQSender = (String) stk.nextElement();
+					String headmsg = (String) stk.nextElement();
+					int flag = Integer.parseInt((String) stk.nextElement());
+
+					if (flag == 0) {
+						JOptionPane.showMessageDialog(null, "对方拒绝了你的请求!",
+								"JICQ提示", 1); // 拒绝添加的音乐
+					} else {
+						JOptionPane.showMessageDialog(null, "对方同意了你的申请!",
+								"JICQ提示", 1); // 添加成功的声音
+						new ListPersonTree(mt).start();
+					}
+				}
+
+				// 添加好友组
+				if (key.equals("DELGROUP")) {
+					try {
+						String msg = (String) stk.nextElement();
+						int flag = Integer.parseInt(msg);
+						if (flag > 0) {
+
+							playMusic.gosystem();
+							try {
+
+								JOptionPane.showMessageDialog(null, "删除好友组成功!",
+										"JICQ提示", 1);
+								new ListPersonTree(mt).start(); // 利用这段时间资源进行刷新
+							} catch (Exception ex) {
+							}
+
+						} else {
+							playMusic.gosystem();
+							JOptionPane.showMessageDialog(null,
+									"删除分组失败,请确认你操作是否正确并稍后再试!", "JICQ提示", 1);
+						}
+
+					} catch (ArrayIndexOutOfBoundsException e) {
+					} catch (NullPointerException e) {
+					} finally {
+					}
+				}
+
+				// 请求删除好友
+				if (key.equals("DELFRIEND")) {
+					try {
+						String msg = (String) stk.nextElement();
+						int flag = Integer.parseInt(msg);
+
+						if (flag > 0) {
+
+							playMusic.gosystem();
+							try {
+
+								JOptionPane.showMessageDialog(null, "删除好友成功!",
+										"JICQ提示", 1);
+								new ListPersonTree(mt).start(); // 利用这段时间资源进行刷新
+							} catch (Exception ex) {
+							}
+
+						} else {
+							playMusic.gosystem();
+							JOptionPane.showMessageDialog(null,
+									"删除好友失败,请确认你操作是否正确并稍后再试!", "JICQ提示", 1);
+						}
+
+					} catch (ArrayIndexOutOfBoundsException e) {
+					} catch (NullPointerException e) {
+					} catch (Exception ex) {
+					}
+				}
+
+				// 有好友改变状态
+				if (key.equals("STATUS")) {
+					new ListPersonTree(mt).start();
+				}
+
+			}// end while
+		} catch (Exception ex) {
+			ex.printStackTrace();
+			JOptionPane.showMessageDialog(null, "通讯失败，可能是由于服务器端没有开启或者网络原因!",
+					"JICQ提示", 1);
+			System.exit(1);
+		}
+
+	}
+
+	public Person findPerson(String hisJICQ) {
+		Person p = null;
+		for (int i = 0; i < MyPersonTree.alist.size(); i++) {
+			p = (Person) MyPersonTree.alist.get(i);
+
+			if (p.getID().equals(hisJICQ)) {
+				break;
+			}
+
+		}
+		return p;
+	}
+
+	public void send(String msg) {
+		try {
+			System.out.println("into Client send() method");
+			out.writeUTF(msg);
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		}
+	}
+
+}

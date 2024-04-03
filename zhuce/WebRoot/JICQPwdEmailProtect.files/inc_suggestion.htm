@@ -1,0 +1,65 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3c.org/TR/1999/REC-html401-19991224/loose.dtd">
+<!-- saved from url=(0045)https://account.qq.com/inc/inc_suggestion.htm -->
+<HTML><HEAD><TITLE>suggestion</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=gb2312"></STYLE>
+<SCRIPT language=javascript>
+<!--
+//----------------Form提交检查
+function submitForm()
+{
+	with (document.Form)
+	{
+	    // 检查内容是否为空
+	    if (suggest.value.length < 1)
+	    {
+	        window.alert("建议内容不能为空，请先输入建议内容，再发送");
+	        return false;
+		}
+		// 检查内容是否与输入前相同
+		if (suggest.value == "如果您有任何建议或者意见，请告诉给我们")
+		{
+	        window.alert("您还没有输入建议内容，不能提交");
+	        clearTextArea();
+	        return false;
+		}
+		
+		// 检查内容是否大于指定长度
+		if (suggest.value.length>256)
+		{
+	        window.alert("建议内容不能超过256个字，请重新输入");
+	        return false;
+		}
+	}
+	
+    // 提交form表单
+    document.Form.submit();
+}
+
+function clearTextArea()
+{
+	with (document.Form)
+	{
+		if (suggest.value == "如果您有任何建议或者意见，请告诉给我们")
+			suggest.value = "";
+	}
+}
+-->
+</SCRIPT>
+<LINK href="inc_suggestion.files/account.css" type=text/css rel=stylesheet>
+<META content="MSHTML 6.00.2900.3020" name=GENERATOR></HEAD>
+<BODY>
+<FORM name=Form onsubmit=return(submitForm()); action=/cgi-bin/suggest 
+method=post autocomplete="off">
+<TABLE height=150 cellSpacing=0 cellPadding=0 width="100%" align=left 
+  border=0><TBODY>
+  <TR>
+    <TD align=middle>
+      <TABLE cellSpacing=0 cellPadding=0 align=center border=0>
+        <TBODY>
+        <TR>
+          <TD><TEXTAREA class=boxinputgrey style="WIDTH: 140px; HEIGHT: 100px; BACKGROUND-COLOR: #ffffff" onclick=javascript:clearTextArea(); name=suggest>如果您有任何建议或者意见，请告诉给我</TEXTAREA></TD></TR></TBODY></TABLE></TD></TR>
+  <TR>
+    <TD>
+      <DIV align=center><BR><INPUT type=image 
+      src="inc_suggestion.files/button_enter.gif" border=0 name=image> 
+  </DIV></TD></TR></TBODY></TABLE></FORM></BODY></HTML>
